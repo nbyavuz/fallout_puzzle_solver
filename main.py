@@ -58,6 +58,9 @@ def solve(words: list) -> int:
 
 def main():
     settings = readJson(CONF_FILE_NAME)
+    print(f'\nWord count = {settings["word_count"]}')
+    print(f'Word length = {settings["word_length"]}')
+    print(f'Alphabet count = {settings["alphabet_count"]}\n')
     words = createWords(settings)
     solve(words)
 
