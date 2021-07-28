@@ -31,11 +31,7 @@ def calculateSelected(words: list) -> Tuple[int, list]:
     return selectedIndex, words[selectedIndex]
 
 def calculateRemaining(words: list, selected: list, likeness: int) -> list:
-    returnList = []
-    for i, elem in enumerate(selected):
-        if likeness == elem:
-            returnList.append(words[i])
-    return returnList
+    return [words[i] for i, elem in enumerate(selected) if likeness == elem]
 
 def solve(words: list) -> int:
     remaining = len(words)
