@@ -1,7 +1,7 @@
 """
 Created on Wed Sep  8 15:42:43 2021
 
-@author: nbyavuz, mkaynarca
+@author: alpaylan, askafkas, mkaynarca, nbyavuz
 """
 
 
