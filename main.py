@@ -1,3 +1,10 @@
+"""
+Created on Wed Sep  8 15:42:43 2021
+
+@author: mkaynarca
+"""
+
+
 import json
 import string
 import random
@@ -26,8 +33,20 @@ def createMatrix(words: list) -> list:
             similarityMatrix[-1].append(sum(map(eq, word, similar_word)))
     return similarityMatrix 
 
-def calculateSelected(words: list) -> Tuple[int, list]:
-    selectedIndex = random.choice(range(len(words)))
+def createScore(words: list , similarityMatrix: list) -> list:
+    possibilityMatrix = []
+    for i in range(len(similarityMatrix)):
+        possibilityMatrix.append([])
+        for j in (range(0,len(words[0]) + 1)):
+            possibilityMatrix[-1].append(((similarityMatrix[i].count(j)) * (len(similarityMatrix) - similarityMatrix[i].count(j)))/len(similarityMatrix))
+    scoreMatrix = []
+    for i in range(len(possibilityMatrix)):
+        scoreMatrix.append([])
+        scoreMatrix[-1] = sum(possibilityMatrix[i])
+    return scoreMatrix           
+
+def calculateSelected(words:list , scoreMatrix: list) -> Tuple[int, list]:
+    selectedIndex = scoreMatrix.index(max(scoreMatrix))
     return selectedIndex, words[selectedIndex]
 
 def calculateRemaining(words: list, selected: list, likeness: int) -> list:
@@ -40,7 +59,8 @@ def solve(words: list) -> int:
     tour_count = 1
     while len(words) > 1:
         similarityMatrix = createMatrix(words)
-        selectedIndex, selected = calculateSelected(words)
+        scoreMatrix = createScore(words, similarityMatrix)
+        selectedIndex, selected = calculateSelected(words,scoreMatrix)
         likeness = sum(map(eq, selected, password))
         words = calculateRemaining(words, similarityMatrix[selectedIndex], likeness)
         print(f'\nTour {tour_count}')
@@ -52,6 +72,9 @@ def solve(words: list) -> int:
     else:
         print(f'Something is wrong, words = {words}\npassword = {password}')
 
+
+    
+    
 def main():
     settings = readJson(CONF_FILE_NAME)
     print(f'\nWord count = {settings["word_count"]}')
@@ -63,3 +86,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
+    
