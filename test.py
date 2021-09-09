@@ -1,27 +1,29 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
-Created on Thu Sep  9 09:26:19 2021
+Created on Wed Sep  8 15:42:43 2021
 
-@author: alpaylan, askafkas, mkaynarca, nbyavuz
+@author: mkaynarca
 """
 
 
+import json
+import string
+import random
 from operator import eq
 from typing import Tuple
 
+CONF_FILE_NAME = 'options.json'
 
-def createWords() -> list:
-    empty_lines = 0
-    words = []    
-    while empty_lines == 0:
-        inp = input("\nPlease type in youur words\nSubmit empty line to stop\n")
-        if inp == "":
-            empty_lines=1
-        else :
-            words.append(inp)         
-    return words
-                     
+def readJson(fileName: str) -> object:
+    with open(fileName) as f:
+        return json.load(f)
+
+def createWords(settings: object) -> list:
+    returnList = []
+    alphabet = random.sample(list(string.ascii_uppercase), settings['alphabet_count'])
+    for i in range(settings['word_count']):
+        elem = [random.choice(alphabet) for _ in range(settings['word_length'])]
+        returnList.append(elem)
+    return returnList
 
 def createMatrix(words: list) -> list:
     similarityMatrix = []
@@ -41,45 +43,48 @@ def createScore(words: list , similarityMatrix: list) -> list:
     for i in range(len(possibilityMatrix)):
         scoreMatrix.append([])
         scoreMatrix[-1] = sum(possibilityMatrix[i])
-    return scoreMatrix   
+    return scoreMatrix           
 
 def calculateSelected(words:list , scoreMatrix: list) -> Tuple[int, list]:
     selectedIndex = scoreMatrix.index(max(scoreMatrix))
     return selectedIndex, words[selectedIndex]
 
-def simLevel(selected: list) -> int:
-    inp = input(f"\nPlease input the similarity level for {selected}\nLeave empty for exact match\n")    
-    if inp == "":
-        likeness = len(selected)
-    else : 
-        likeness = int(inp)        
-    return likeness
-
 def calculateRemaining(words: list, selected: list, likeness: int) -> list:
     return [words[i] for i, elem in enumerate(selected) if likeness == elem]
 
-
 def solve(words: list) -> int:
     remaining = len(words)
+    password = random.choice(words)
+    print(f'Password = {password}')
     tour_count = 1
     while len(words) > 1:
         similarityMatrix = createMatrix(words)
         scoreMatrix = createScore(words, similarityMatrix)
-        selectedIndex, selected = calculateSelected(words,scoreMatrix)        
-        print(f'\nTour {tour_count}')
-        print(f'Selected = {selected}')
-        likeness=simLevel(selected)
+        selectedIndex, selected = calculateSelected(words,scoreMatrix)
+        likeness = sum(map(eq, selected, password))
         words = calculateRemaining(words, similarityMatrix[selectedIndex], likeness)
+        print(f'\nTour {tour_count}')
+        print(f'Selected = {selected} and likeness = {likeness}')
         print(f'Remaining count = {len(words)}\n')
         tour_count = tour_count + 1
-    if len(words) == 1:
+    if len(words) == 1 and words[0] == password:
         print(f'Password cracked, password = {words[0]}')
-        
+    else:
+        print(f'Something is wrong, words = {words}\npassword = {password}')
+
+
+    
+    
 def main():
-    words = createWords()
+    settings = readJson(CONF_FILE_NAME)
+    print(f'\nWord count = {settings["word_count"]}')
+    print(f'Word length = {settings["word_length"]}')
+    print(f'Alphabet count = {settings["alphabet_count"]}\n')
+    words = createWords(settings)
     solve(words)
-    
-    
+
+
 if __name__ == "__main__":
     main()
+    
     
