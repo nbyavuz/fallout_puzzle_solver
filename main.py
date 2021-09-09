@@ -3,7 +3,7 @@
 """
 Created on Thu Sep  9 09:26:19 2021
 
-@author: mkaynarca
+@author: alpaylan, askafkas, mkaynarca, nbyavuz
 """
 
 
