@@ -8,6 +8,7 @@ Trying to create alternative solutions for fallout word selection puzzle
 
 - **Now you can work with your own wordlist you cheater cunt. Go hack some terminals.**
 - **I will move the good old test version to a new branch but i don't know how to do that. Might fail. So, IDK.** 
+- https://jetholt.com/hacking/ might be useful.
 
 
 
