@@ -43,7 +43,7 @@ Unfortunately you can not use your own wordlist for this version, as i said, it 
 I am kinda new to all these python or coding and shit, so here is the word selection process in a manner that is way too informal. 
 
 - Create similarity matrix that shows each words likeness to other words
-- Let's say that a word with 5 letters, say word-1 has;
+- Let's say that a word with 5 letters, say word-x has;
 
 
 0 similarity with 4 words
