@@ -33,7 +33,7 @@ http://aramor.epizy.com/fallout-terminal/
 
 Results was like dayum. We gave this piece of garbage 1000 words with 12 letters and get the password in 4-7 turns. Not so piece of garbage at all. 
 
-Unfortunately you can not use your own wordlist for this version, as i said, it is for testing the algorithm. But don't worry, since we have pleasent results, we will start working on a basic console application. Might take a bit tho. I am not a CS student and we all have shits to do. 
+Unfortunately you can not use your own wordlist for this version, as i said, it is for testing the algorithm. But don't worry, since we have pleasant results, we will start working on a basic console application. Might take a bit tho. I am not a CS student and we all have shits to do. 
 
 
 - **Word selection method** : Now selects words for some probabilistic mumbo-jumbo criterion, not randomly. (Special thanks to mkaynarca, for coming up with that mumbo-jumbo) 
