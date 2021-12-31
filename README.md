@@ -6,7 +6,7 @@ Trying to create alternative solutions for fallout word selection puzzle
 
 **9.9.21 - Fallout Puzzle Solver - ver. 1.0 - YEA BOIIIII**
 
-- **Now you can work with your own wordlist you cheater cunt. Go hack some terminals.**
+- **Now you can work with your own wordlist. Go hack some terminals.**
 - **I will move the good old test version to a new branch but i don't know how to do that. Might fail. So, IDK.** 
 -  Websites below might be useful.
 
