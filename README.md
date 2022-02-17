@@ -4,6 +4,11 @@ Trying to create alternative solutions for fallout word selection puzzle
 
 ### Changelog
 
+**17.2.22 - Fallout Puzzle Solver - ver. 1.1 - Should have done it long ago**
+
+- **Now confirms the word list**
+
+
 **9.9.21 - Fallout Puzzle Solver - ver. 1.0 - YEA BOIIIII**
 
 - **Now you can work with your own wordlist. Go hack some terminals.**

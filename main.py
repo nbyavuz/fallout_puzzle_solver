@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Created on Thu Sep  9 09:26:19 2021
@@ -10,14 +9,24 @@ Created on Thu Sep  9 09:26:19 2021
 from operator import eq
 from typing import Tuple
 
+def confirmation(words:list) -> list:
+    print(words)
+    inp = input("\nIs the word list true? (y/n)\n")
+    if inp == ("Y" or "y"):
+        return words
+    else:
+        words = createWords()
+        return words     
 
+    
 def createWords() -> list:
     empty_lines = 0
     words = []    
     while empty_lines == 0:
-        inp = input("\nPlease type in youur words\nSubmit empty line to stop\n")
+        inp = input("\nPlease type in your words\nSubmit empty line to stop\n")
         if inp == "":
             empty_lines=1
+            confirmation(words)
         else :
             words.append(inp)         
     return words
