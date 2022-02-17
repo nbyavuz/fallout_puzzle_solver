@@ -7,6 +7,7 @@ Trying to create alternative solutions for fallout word selection puzzle
 **17.2.22 - Fallout Puzzle Solver - ver. 1.1 - Should have done it long ago**
 
 - **Now confirms the word list**
+- **Fixed typo**
 
 
 **9.9.21 - Fallout Puzzle Solver - ver. 1.0 - YEA BOIIIII**
