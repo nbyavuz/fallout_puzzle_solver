@@ -7,28 +7,77 @@ Created on Thu Sep  9 09:26:19 2021
 
 
 from operator import eq
+import string
 from typing import Tuple
+from venv import create
 
 def confirmation(words:list) -> list:
-    print(words)
+    
+    for i in range(len(words)):
+        print(i+1, " : ", words[i], "\n")
+    
     inp = input("\nIs the word list true? (y/n)\n")
-    if inp == ("Y" or "y"):
+    
+    if (inp == "y" or inp == "Y"):
         return words
+    
     else:
-        words = createWords()
-        return words     
+        inp = input("\nWould you like to edit the list or start over (e for edit/a for add/s sor start over)\n")
+        if (inp == "e" or inp == "E"):
+            editWords(words)
+        elif (inp == "a" or inp == "A"):
+            addWords(words)
+        else:
+            words = createWords()
+            
+
+def editWords(words:list) -> list:
+    edit_mode = True
+    
+    while edit_mode: 
+        for i in range(len(words)):
+            print(i+1, " : ", words[i],  "\n")
+
+        id = int(input("\nPlease enter the ID of the word you would like to edit\n"))
+
+        word = str(input("\nPlease type in the correct word\n"))
+
+        words[id - 1] = word
+        
+        inp = input("\nWould you like to edit more words (y/n)")
+        if (inp == "y" or inp == "Y"):
+            editWords(words)
+            break
+        else:
+            confirmation(words)
+            break
+        
+        
+    
+def addWords(words:list) -> list:
+    word = input("\nPlease type in the new word\n")
+
+    words.append(word)
+    
+    inp = input("\nWould you like to add more words (y/n)")
+    if (inp == "y" or inp == "Y"):
+        editWords(words)
+    else:
+        confirmation(words)
+    
 
     
 def createWords() -> list:
     empty_lines = 0
-    words = []    
+    words = []
+    inp = input("\nPlease type in your words\nSubmit empty line to stop\n")   
     while empty_lines == 0:
-        inp = input("\nPlease type in your words\nSubmit empty line to stop\n")
         if inp == "":
             empty_lines=1
             confirmation(words)
         else :
-            words.append(inp)         
+            words.append(inp)
+            inp = input("")         
     return words
                      
 
