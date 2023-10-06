@@ -46,7 +46,7 @@ Unfortunately you can not use your own wordlist for this version, as i said, it 
 
 **Probabilistic mumbo-jumbo**
 
-I am kinda new to all these python or coding and shit, so here is the word selection process in a manner that is way too informal. 
+Here is the word selection process in a manner that is way too informal. 
 
 - Create similarity matrix that shows each words likeness to other words
 - Let's say that a word with 5 letters, say word-x has;
