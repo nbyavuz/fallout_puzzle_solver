@@ -1,5 +1,7 @@
 # fallout_puzzle_solver
 
+For detailed explanation of the algorithm and the game, please refer to [this PDF.](https://github.com/mkaynarca/fallout_puzzle_solver/blob/main/M.%20Murat%20Kaynarca%20-%20Fallout%20Puzzle%20Solver.pdf)
+
 Trying to create alternative solutions for fallout word selection puzzle
 
 ### Changelog
