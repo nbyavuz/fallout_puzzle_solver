@@ -37,7 +37,7 @@ def createWords():
     confirmed = False
     while not confirmed:
         inp = input("Write down the words you would like to use, seperated by a comma, spaces are allowed\n")
-        words = inp.replace(" ", "").split(",")
+        words = inp.lower().replace(" ", "").split(",")
         if checkWordlist(words):
             inp = input("Are you sure you want to use these words? (y/n)\n")
             if inp.lower() == "y":
