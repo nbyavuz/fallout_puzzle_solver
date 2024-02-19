@@ -31,8 +31,6 @@ def testBench(numWords: int, wordLength: int):
         print(f"The password is: {words[0]}")
         print(f"Tour count: {tour}")
     
-
-
 def createWords():
     confirmed = False
     while not confirmed:
