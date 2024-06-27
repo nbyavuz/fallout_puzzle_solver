@@ -63,21 +63,17 @@ def compareWords(word1: str, word2: str):
     return sim
                 
 def createMatrix(words: list):
-    if checkWordlist(words):
-        simMatrix = []
-        for tWord in words:
-            simMatrix.append([])
-            for sWord in words:
-                sim = 0
-                for i,c in enumerate(sWord):
-                    if c == tWord[i]:
-                        sim = sim + 1
-                simMatrix[-1].append(sim)
-        return simMatrix
-    else:
-        print("The word list is not valid.")
-        words = createWords()
-        createMatrix(words)
+    simMatrix = []
+    for tWord in words:
+        simMatrix.append([])
+        for sWord in words:
+            sim = 0
+            for i,c in enumerate(sWord):
+                if c == tWord[i]:
+                    sim = sim + 1
+            simMatrix[-1].append(sim)
+    return simMatrix
+
 
 def createPos(simMatrix: list):
     posMatrix = []
